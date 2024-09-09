@@ -1,1 +1,12 @@
 @import 'config.module';
+
+.magic {
+    &::after {
+        content: '🪄';
+        position: relative;
+        top: -7px;
+        left: 14px;
+        width: 100%;
+        height: 100%;
+    }
+}
