@@ -1,9 +1,10 @@
 import { Metadata } from 'next';
 import Image from 'next/image';
+import Link from 'next/link';
 
+import Divider from '#/components/divider';
 import MaxWidthWrapper from '#/components/max-width-wrapper';
-
-// Add this import
+import LinkedInIcon from '#/public/icons/linkedin.svg';
 
 export const metadata: Metadata = {
     title: 'About Jan Hřídel',
@@ -27,7 +28,7 @@ export default function AboutPage() {
                     alt="Ing. Jan Hřídel (Web Dev Wizard)"
                     width={300}
                     height={300}
-                    className="mx-auto my-4 rounded-md"
+                    className="mx-auto my-4 rounded-md drop-shadow-lg"
                 />
                 <p className="mt-4">
                     Once upon a time, there was a software developer named Jan.
@@ -94,6 +95,26 @@ export default function AboutPage() {
                     conjuring the most magical web applications.
                 </p>
             </article>
+            <Divider className="my-8" />
+            <div className="flex flex-col items-center justify-center gap-3 lg:flex-row">
+                <Image
+                    src={LinkedInIcon}
+                    alt="LinkedIn"
+                    width={24}
+                    height={24}
+                />
+                <p className="text-center">
+                    I don&apos;t like fairy tales, show me your{' '}
+                    <Link
+                        href="https://www.linkedin.com/in/jan-hřídel-42640888/"
+                        target="_blank"
+                        className="underline underline-offset-4 decoration-2 decoration-accent-foreground hover:no-underline"
+                    >
+                        LinkedIn profile
+                    </Link>
+                    .
+                </p>
+            </div>
         </MaxWidthWrapper>
     );
 }

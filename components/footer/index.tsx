@@ -1,7 +1,9 @@
+import Divider from '#/components/divider';
+
 const Footer = () => {
     return (
         <footer className="py-2 w-full flex flex-col gap-2 justify-center items-center">
-            <div className="h-[1px] w-full bg-gradient-to-r from-transparent via-muted-foreground/50 to-transparent" />
+            <Divider />
             <p className="text-center text-sm text-muted-foreground">
                 <small>
                     This page does not use cookies that are subject to

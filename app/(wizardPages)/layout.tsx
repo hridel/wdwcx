@@ -1,5 +1,5 @@
-import type { Metadata } from 'next';
 import { Ubuntu } from 'next/font/google';
+import React from 'react';
 
 import Footer from '#/components/footer';
 import Header from '#/components/header';
