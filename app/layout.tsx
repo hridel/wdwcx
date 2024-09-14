@@ -19,9 +19,12 @@
 */
 import type { Metadata } from 'next';
 
+import { baseUrl } from '#/config';
+
 import { openGraphImage } from './shared-metadata';
 
 export const metadata: Metadata = {
+    metadataBase: new URL(baseUrl),
     title: {
         template: '%s | #WebDevWizard',
         default: 'Web Dev Wizard',

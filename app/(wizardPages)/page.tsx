@@ -12,6 +12,8 @@ const ubuntuMono = Ubuntu_Mono({
     display: 'swap',
 });
 
+export const dynamic = 'force-dynamic';
+
 export default function Home() {
     return (
         <MaxWidthWrapper>
