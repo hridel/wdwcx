@@ -3,6 +3,7 @@ import React from 'react';
 
 import Footer from '#/components/footer';
 import Header from '#/components/header';
+import ThemeDetector from '#/components/theme-detector';
 import { cn } from '#/lib/utils';
 import '#/styles/index.scss';
 
@@ -27,6 +28,7 @@ export default function WizardPagesLayout({
             <Header />
             <main className="w-full flex-1">{children}</main>
             <Footer />
+            <ThemeDetector />
         </body>
     );
 }
