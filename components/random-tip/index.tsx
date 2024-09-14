@@ -1,9 +1,9 @@
-import { Lightbulb, Shuffle } from 'lucide-react';
+import { Lightbulb } from 'lucide-react';
 import React, { ReactElement } from 'react';
 
-import SubmitButton from '#/components/random-tip/submit-button';
+// import SubmitButton from '#/components/random-tip/submit-button';
 import { Alert, AlertDescription, AlertTitle } from '#/components/ui/alert';
-import { revalidateRandomTip } from '#/lib/actions';
+// import { revalidateRandomTip } from '#/lib/actions';
 import { fetchRandomTip } from '#/lib/fetchers/tips';
 
 const RandomTip = async (): Promise<ReactElement> => {
@@ -23,11 +23,13 @@ const RandomTip = async (): Promise<ReactElement> => {
                     dangerouslySetInnerHTML={{ __html: tip.description }}
                 ></AlertDescription>
             </Alert>
+            {/*
             <form action={revalidateRandomTip}>
                 <SubmitButton variant="ghost" type="submit">
                     <Shuffle />
                 </SubmitButton>
             </form>
+            */}
         </aside>
     );
 };
