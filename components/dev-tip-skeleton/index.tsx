@@ -4,7 +4,7 @@ import React from 'react';
 import { Alert, AlertDescription, AlertTitle } from '#/components/ui/alert';
 import { Skeleton } from '#/components/ui/skeleton';
 
-const RandomTipSkeleton = () => {
+const DevTipSkeleton = () => {
     return (
         <Alert>
             <Lightbulb className="h-4 w-4" />
@@ -19,4 +19,4 @@ const RandomTipSkeleton = () => {
     );
 };
 
-export default RandomTipSkeleton;
+export default DevTipSkeleton;
