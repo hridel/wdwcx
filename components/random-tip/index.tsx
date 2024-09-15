@@ -1,13 +1,16 @@
 import { Lightbulb } from 'lucide-react';
 import React, { ReactElement } from 'react';
 
-// import SubmitButton from '#/components/random-tip/submit-button';
 import { Alert, AlertDescription, AlertTitle } from '#/components/ui/alert';
-// import { revalidateRandomTip } from '#/lib/actions';
-import { fetchRandomTip } from '#/lib/fetchers/tips';
+import { prisma } from '#/lib/db';
 
 const RandomTip = async (): Promise<ReactElement> => {
-    const tip = await fetchRandomTip();
+    const relatedTips = await prisma.devTip.findMany({
+        take: 1,
+        orderBy: { id: 'asc' },
+        skip: Math.floor(Math.random() * (await prisma.devTip.count())),
+    });
+    const tip = relatedTips[0] || null;
 
     return (
         <aside className="flex flex-col items-center sm:items-end gap-3">
@@ -16,20 +19,13 @@ const RandomTip = async (): Promise<ReactElement> => {
                 <AlertTitle
                     className="mb-2"
                     dangerouslySetInnerHTML={{
-                        __html: `<span class="text-cyan-600">${tip.hashtag}</span> ${tip.title}`,
+                        __html: `<span class="text-cyan-600">#${tip?.tags.join(', #')}</span> ${tip?.title}`,
                     }}
                 ></AlertTitle>
                 <AlertDescription
-                    dangerouslySetInnerHTML={{ __html: tip.description }}
+                    dangerouslySetInnerHTML={{ __html: tip?.description || '' }}
                 ></AlertDescription>
             </Alert>
-            {/*
-            <form action={revalidateRandomTip}>
-                <SubmitButton variant="ghost" type="submit">
-                    <Shuffle />
-                </SubmitButton>
-            </form>
-            */}
         </aside>
     );
 };

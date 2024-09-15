@@ -102,6 +102,7 @@ export default function AboutPage() {
                     alt="LinkedIn"
                     width={24}
                     height={24}
+                    className="dar:text-accent-foreground"
                 />
                 <p className="text-center">
                     I don&apos;t like fairy tales, show me your{' '}
