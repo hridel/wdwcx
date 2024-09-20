@@ -13,6 +13,11 @@ const ubuntuMono = Ubuntu_Mono({
     display: 'swap',
 });
 
+export const metadata = {
+    description:
+        'Crafting Modern Web Solutions with a Touch of Magic. "Turning lines of code into magic since 1999."',
+};
+
 export default async function Home() {
     return (
         <MaxWidthWrapper>

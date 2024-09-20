@@ -16,6 +16,12 @@ const Footer = () => {
                     rights reserved.
                 </small>
             </p>
+            <p className="text-center text-sm text-muted-foreground">
+                <small>
+                    ✨&nbsp;&#34;Turning lines of code into magic since
+                    1999.&#34;&nbsp;🧙🏻‍♂️
+                </small>
+            </p>
         </footer>
     );
 };
