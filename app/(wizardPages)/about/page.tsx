@@ -4,6 +4,7 @@ import Link from 'next/link';
 
 import Divider from '#/components/divider';
 import MaxWidthWrapper from '#/components/max-width-wrapper';
+import ResumeDownload from '#/components/resume-download';
 import LinkedInIcon from '#/public/icons/linkedin.svg';
 
 export const metadata: Metadata = {
@@ -30,6 +31,9 @@ export default function AboutPage() {
                     height={300}
                     className="mx-auto my-4 rounded-md drop-shadow-lg"
                 />
+                <Divider className="my-8" />
+                <ResumeDownload />
+                <Divider className="my-8" />
                 <p className="mt-4">
                     Once upon a time, there was a software developer named Jan.
                     Jan was very curious and, since his high school studies, he
