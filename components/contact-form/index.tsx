@@ -1,8 +1,7 @@
 'use client';
 
 import { CircleCheck } from 'lucide-react';
-import { ReactElement, useEffect, useRef } from 'react';
-import { useFormState } from 'react-dom';
+import { ReactElement, useEffect, useRef, useActionState } from 'react';
 
 import { ContactFormState } from '#/components/contact-form/def';
 import SubmitButton from '#/components/contact-form/submit-button';
@@ -19,7 +18,7 @@ const initialFormState: ContactFormState = {
 };
 
 const ContactForm = (): ReactElement => {
-    const [formState, formAction] = useFormState(
+    const [formState, formAction] = useActionState(
         handleSubmitContactForm,
         initialFormState
     );
