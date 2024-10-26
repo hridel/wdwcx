@@ -1,4 +1,4 @@
-@import 'config.module';
+@use 'config.module';
 
 .magic {
     &::after {
@@ -13,10 +13,36 @@
 
 code {
     font-family: 'Fira Code', monospace;
-    background: #6beeee;
+    background: #cdcdcd;
     padding: 0 3px;
     border-radius: 5px;
-    color: #333;
+    color: #222;
     font-size: 1.02em;
     font-weight: 600;
+
+    &.language-javascript,
+    &.language-bash {
+        max-width: 100%;
+        max-height: 160px;
+        display: block;
+        padding: 4px;
+        overflow: auto;
+    }
+}
+
+.md {
+    h1 {
+        font-size: 2.5em;
+        margin: 0.67em 0;
+    }
+
+    h2 {
+        font-size: 2em;
+        margin: 0.83em 0;
+    }
+
+    p {
+        font-size: 1.2em;
+        margin: 1.33em 0;
+    }
 }
