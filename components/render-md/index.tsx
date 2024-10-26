@@ -1,4 +1,4 @@
-"use const";
+'use const';
 
 import { remark } from 'remark';
 import html from 'remark-html';
@@ -12,8 +12,11 @@ const RenderMd = async (props: RenderMdProps) => {
     const result = await remark().use(html).process(mdContent);
 
     return (
-        <div className="md" dangerouslySetInnerHTML={{ __html: result.toString() }} />
+        <div
+            className="md"
+            dangerouslySetInnerHTML={{ __html: result.toString() }}
+        />
     );
-}
+};
 
 export default RenderMd;

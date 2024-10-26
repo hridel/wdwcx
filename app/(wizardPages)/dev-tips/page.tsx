@@ -12,13 +12,11 @@ export const metadata: Metadata = {
     description: '',
 };
 
-export default async function DevTipsPage(
-    props: {
-        searchParams?: Promise<{
-            page?: string;
-        }>;
-    }
-) {
+export default async function DevTipsPage(props: {
+    searchParams?: Promise<{
+        page?: string;
+    }>;
+}) {
     const searchParams = await props.searchParams;
     const totalPages = await fetchTotalDevTipsPages();
     return (

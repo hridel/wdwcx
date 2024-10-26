@@ -1,7 +1,7 @@
 'use client';
 
 import { CircleCheck } from 'lucide-react';
-import { ReactElement, useEffect, useRef, useActionState } from 'react';
+import { ReactElement, useActionState, useEffect, useRef } from 'react';
 
 import { ContactFormState } from '#/components/contact-form/def';
 import SubmitButton from '#/components/contact-form/submit-button';

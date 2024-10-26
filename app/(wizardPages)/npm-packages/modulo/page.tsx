@@ -1,13 +1,8 @@
 import { Metadata } from 'next';
-import Image from 'next/image';
-import Link from 'next/link';
 
-import Divider from '#/components/divider';
 import MaxWidthWrapper from '#/components/max-width-wrapper';
-import ResumeDownload from '#/components/resume-download';
-import LinkedInIcon from '#/public/icons/linkedin.svg';
-import { fetchMarkdown } from '#/lib/services/markdown';
 import RenderMd from '#/components/render-md';
+import { fetchMarkdown } from '#/lib/services/markdown';
 
 export const metadata: Metadata = {
     title: 'modulo – npm package for JavaScript/TypeScript modular arithmetic',
@@ -16,7 +11,9 @@ export const metadata: Metadata = {
 };
 
 export default async function AboutPage() {
-    const mdContent = await fetchMarkdown("https://raw.githubusercontent.com/hridel/modulo/refs/heads/main/README.md");
+    const mdContent = await fetchMarkdown(
+        'https://raw.githubusercontent.com/hridel/modulo/refs/heads/main/README.md'
+    );
     return (
         <MaxWidthWrapper>
             <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-center">

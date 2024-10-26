@@ -20,7 +20,8 @@ code {
     font-size: 1.02em;
     font-weight: 600;
 
-    &.language-javascript, &.language-bash {
+    &.language-javascript,
+    &.language-bash {
         max-width: 100%;
         max-height: 160px;
         display: block;
@@ -28,8 +29,6 @@ code {
         overflow: auto;
     }
 }
-
-
 
 .md {
     h1 {
