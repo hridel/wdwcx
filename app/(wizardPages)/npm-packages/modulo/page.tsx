@@ -9,6 +9,8 @@ import { fetchMarkdown } from '#/lib/services/markdown';
 import GitHubIcon from '#/public/icons/github.svg';
 import NpmIcon from '#/public/icons/npm.svg';
 
+export const revalidate = 1800; // 30 minutes in seconds
+
 export const metadata: Metadata = {
     title: 'modulo – npm package for JavaScript/TypeScript modular arithmetic',
     description:
