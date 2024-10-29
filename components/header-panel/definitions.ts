@@ -7,6 +7,12 @@ export const packages: MenuSubItem[] = [
         description:
             'A modular arithmetic utility for JavaScript, handling both positive and negative integers.',
     },
+    {
+        title: 'convert-kit',
+        href: '/npm-packages/convert-kit',
+        description:
+            'A library for converting colors between different formats (RGB, HSL, HEX).',
+    },
 ];
 
 export type MobileMenuItem = { title: string; href: string };
