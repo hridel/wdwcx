@@ -3,10 +3,13 @@
 import { Menu } from 'lucide-react';
 import Link from 'next/link';
 import { useState } from 'react';
+import React from 'react';
 
 import { VisuallyHidden } from '@radix-ui/react-visually-hidden';
 
+import Divider from '#/components/divider';
 import {
+    MobileMenuCategory,
     MobileMenuItem,
     packages,
 } from '#/components/header-panel/definitions';
@@ -24,27 +27,25 @@ const MenuItems: MobileMenuItem[] = [
     {
         title: 'home',
         href: '/',
-        type: 'link',
     },
     {
         title: 'about me ',
         href: '/about',
-        type: 'link',
     },
     {
         title: 'dev tips',
         href: '/dev-tips',
-        type: 'link',
-    },
-    {
-        title: 'NPM packages',
-        type: 'category',
-        items: packages,
     },
     {
         title: 'contact',
         href: '/contact',
-        type: 'link',
+    },
+];
+
+const mobileMenuCategories: MobileMenuCategory[] = [
+    {
+        title: 'NPM packages',
+        items: packages,
     },
 ];
 
@@ -80,48 +81,41 @@ const MobileMenu = () => {
                             </DrawerDescription>
                         </DrawerHeader>
                     </VisuallyHidden>
-                    <nav>
+                    <nav className="p-2">
                         <ul className="my-2">
-                            {MenuItems.map((item) => {
-                                if (item.type === 'link') {
-                                    return (
-                                        <li key={item.href} className="mt-2">
+                            {MenuItems.map((item) => (
+                                <li key={item.href} className="mt-2">
+                                    <Link
+                                        href={item.href}
+                                        onClick={handleMenuClick}
+                                        className="block p-2 font-semibold rounded-sm bg-gray-100 dark:bg-gray-600"
+                                    >
+                                        {item.title}
+                                    </Link>
+                                </li>
+                            ))}
+                        </ul>
+                        <Divider className="my-4" />
+                        {mobileMenuCategories.map((category) => (
+                            <React.Fragment key={category.title}>
+                                <p className="text-xl font-semibold">
+                                    {category.title}
+                                </p>
+                                <ul className="ml-4">
+                                    {category.items.map((item) => (
+                                        <li key={item.title} className="my-2">
                                             <Link
                                                 href={item.href}
                                                 onClick={handleMenuClick}
-                                                className="block p-2 font-semibold rounded-sm bg-gray-100 dark:bg-gray-600"
+                                                className="block py-1 px-2 text-sm font-semibold rounded-sm bg-gray-100 dark:bg-gray-600"
                                             >
                                                 {item.title}
                                             </Link>
                                         </li>
-                                    );
-                                } else if (item.type === 'category') {
-                                    return (
-                                        <li key={item.title} className="my-2">
-                                            <strong>{item.title}</strong>
-                                            <ul className="my-2">
-                                                {item.items.map((subItem) => (
-                                                    <li
-                                                        key={subItem.href}
-                                                        className="ml-4"
-                                                    >
-                                                        <Link
-                                                            href={subItem.href}
-                                                            onClick={
-                                                                handleMenuClick
-                                                            }
-                                                            className="block py-1 px-2 text-sm font-semibold rounded-sm bg-gray-100 dark:bg-gray-600"
-                                                        >
-                                                            {subItem.title}
-                                                        </Link>
-                                                    </li>
-                                                ))}
-                                            </ul>
-                                        </li>
-                                    );
-                                }
-                            })}
-                        </ul>
+                                    ))}
+                                </ul>
+                            </React.Fragment>
+                        ))}
                     </nav>
                 </div>
             </DrawerContent>

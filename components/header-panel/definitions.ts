@@ -9,6 +9,9 @@ export const packages: MenuSubItem[] = [
     },
 ];
 
-export type MobileMenuItem =
-    | { title: string; href: string; type: 'link' }
-    | { title: string; type: 'category'; items: MenuSubItem[] };
+export type MobileMenuItem = { title: string; href: string };
+
+export type MobileMenuCategory = {
+    title: string;
+    items: MenuSubItem[];
+};
