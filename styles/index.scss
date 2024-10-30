@@ -21,6 +21,8 @@ code {
     font-weight: 600;
 
     &.language-javascript,
+    &.language-typescript,
+    &.language-sh,
     &.language-bash {
         max-width: 100%;
         max-height: 160px;
