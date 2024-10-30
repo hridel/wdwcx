@@ -64,9 +64,18 @@ const DesktopMenu = () => {
                     </Link>
                 </NavigationMenuItem>
                 <NavigationMenuItem>
+                    <Link href="/contact" legacyBehavior passHref>
+                        <NavigationMenuLink
+                            className={navigationMenuTriggerStyle()}
+                        >
+                            contact
+                        </NavigationMenuLink>
+                    </Link>
+                </NavigationMenuItem>
+                <NavigationMenuItem>
                     <NavigationMenuTrigger>npm packages</NavigationMenuTrigger>
                     <NavigationMenuContent>
-                        <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] lg:w-[600px] ">
+                        <ul className="grid grid-cols-2 w-[400px] gap-3 p-4 md:w-[500px] lg:w-[600px] ">
                             {packages.map((pkg) => (
                                 <ListItem
                                     key={pkg.title}
@@ -78,15 +87,6 @@ const DesktopMenu = () => {
                             ))}
                         </ul>
                     </NavigationMenuContent>
-                </NavigationMenuItem>
-                <NavigationMenuItem>
-                    <Link href="/contact" legacyBehavior passHref>
-                        <NavigationMenuLink
-                            className={navigationMenuTriggerStyle()}
-                        >
-                            contact
-                        </NavigationMenuLink>
-                    </Link>
                 </NavigationMenuItem>
             </NavigationMenuList>
         </NavigationMenu>
