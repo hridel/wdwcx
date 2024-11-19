@@ -1,11 +1,8 @@
-# Next Web Starter
+# #WebDevWizard
+My personal website, built with:
+- React + Next.js
+- Tailwind CSS
+- Prisma
+- PostgreSQL
 
-– Next.js application
-
-## Getting started
-
-### Local development
-
-`npm install`
-
-`npm run dev`
+Available at [wdw.cx](https://wdw.cx).
