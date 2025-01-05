@@ -88,7 +88,7 @@ const MobileMenu = () => {
                                     <Link
                                         href={item.href}
                                         onClick={handleMenuClick}
-                                        className="block p-2 font-semibold rounded-sm bg-gradient-to-r from-green-300 via-blue-300 to-transparent dark:from-green-800 dark:via-blue-800"
+                                        className="block p-2 font-semibold rounded-sm bg-gradient-to-r from-[#f6c97b] via-blue-300 to-transparent dark:from-[#daa65a] dark:via-blue-800"
                                     >
                                         {item.title}
                                     </Link>
@@ -107,7 +107,7 @@ const MobileMenu = () => {
                                             <Link
                                                 href={item.href}
                                                 onClick={handleMenuClick}
-                                                className="block py-1 px-2 text-sm font-semibold rounded-sm bg-gradient-to-r from-green-300 via-blue-300 to-transparent dark:from-green-800 dark:via-blue-800"
+                                                className="block py-1 px-2 text-sm font-semibold rounded-sm bg-gradient-to-r from-[#f6c97b] via-blue-300 to-transparent dark:from-[#daa65a] dark:via-blue-800"
                                             >
                                                 {item.title}
                                             </Link>
