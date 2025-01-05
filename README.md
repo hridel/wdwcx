@@ -1,5 +1,7 @@
 # #WebDevWizard
+
 My personal website, built with:
+
 - React + Next.js
 - Tailwind CSS
 - Prisma
