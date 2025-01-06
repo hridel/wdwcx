@@ -82,6 +82,31 @@ export const handleSubmitContactForm = async (
     _previousState: ContactFormState,
     formData: FormData
 ): Promise<ContactFormState> => {
+    const token = formData.get('cf-turnstile-response') as string;
+
+    // Validate the token by calling the
+    // "/siteverify" API endpoint.
+    const url = 'https://challenges.cloudflare.com/turnstile/v0/siteverify';
+    const result = await fetch(url, {
+        body: JSON.stringify({
+            secret: process.env.TURNSTILE_SECRET_KEY,
+            response: token,
+        }),
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+    });
+
+    const outcome = await result.json();
+    if (!outcome.success) {
+        return {
+            success: false,
+            error: true,
+            returnCode: Math.random().toString(36).substring(2, 10),
+        };
+    }
+
     const validatedFields = contactFormSchema.safeParse({
         email: formData.get('email') as string,
         message: formData.get('message') as string,
