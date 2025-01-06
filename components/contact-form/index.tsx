@@ -1,6 +1,8 @@
 'use client';
 
 import { CircleCheck } from 'lucide-react';
+import { usePathname } from 'next/navigation';
+import Script from 'next/script';
 import { ReactElement, useActionState, useEffect, useRef } from 'react';
 
 import { ContactFormState } from '#/components/contact-form/def';
@@ -22,7 +24,7 @@ const ContactForm = (): ReactElement => {
         handleSubmitContactForm,
         initialFormState
     );
-
+    const pathname = usePathname();
     const formRef = useRef<HTMLFormElement>(null);
 
     useEffect(() => {
@@ -31,27 +33,48 @@ const ContactForm = (): ReactElement => {
         }
     }, [formState.success, formState.returnCode]);
 
+    useEffect(() => {
+        const turnstileContainers = document.querySelectorAll('.cf-turnstile');
+
+        turnstileContainers.forEach((turnstileContainer) => {
+            turnstileContainer.innerHTML = '';
+            // @ts-ignore
+            if (window && window.turnstile) {
+                // @ts-ignore
+                window.turnstile.render(turnstileContainer, {
+                    sitekey: process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY,
+                    callback: 'javascriptCallback',
+                });
+            }
+        });
+    }, [pathname]);
+
     return (
-        <form ref={formRef} action={formAction} className="space-y-8">
-            <div>
-                <Label htmlFor="email">Your email address</Label>
-                <Input
-                    id="email"
-                    name="email"
-                    type="email"
-                    placeholder="Email address"
-                />
-            </div>
-            <div>
-                <Label htmlFor="message">Your message</Label>
-                <Textarea
-                    id="message"
-                    name="message"
-                    placeholder="Message..."
-                />
-            </div>
-            <div className="flex flex-col justify-center items-center md:flex-row md:justify-between md:items-start gap-4">
-                <div className="w-full md:w-3/4">
+        <>
+            <Script
+                src="https://challenges.cloudflare.com/turnstile/v0/api.js"
+                async
+                defer
+            />
+            <form ref={formRef} action={formAction} className="space-y-8">
+                <div>
+                    <Label htmlFor="email">Your email address</Label>
+                    <Input
+                        id="email"
+                        name="email"
+                        type="email"
+                        placeholder="Email address"
+                    />
+                </div>
+                <div>
+                    <Label htmlFor="message">Your message</Label>
+                    <Textarea
+                        id="message"
+                        name="message"
+                        placeholder="Message..."
+                    />
+                </div>
+                <div className="w-full">
                     {formState.success && (
                         <div className="flex flex-col gap-4 items-center justify-center">
                             <CircleCheck className="text-green-600 w-10 h-10" />
@@ -75,9 +98,19 @@ const ContactForm = (): ReactElement => {
                         </Alert>
                     )}
                 </div>
-                <SubmitButton size="lg">Submit</SubmitButton>
-            </div>
-        </form>
+
+                <div className="flex flex-col gap-2 md:flex-row items-center justify-between">
+                    <div
+                        className="cf-turnstile"
+                        data-sitekey={
+                            process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY
+                        }
+                        data-callback="javascriptCallback"
+                    />
+                    <SubmitButton size="lg">Submit</SubmitButton>
+                </div>
+            </form>
+        </>
     );
 };
 
