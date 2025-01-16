@@ -34,7 +34,7 @@ export default function ContactPage() {
                         <Image src={XIcon} alt="X" width={32} height={32} />
                     </Link>
                     <Link
-                        href="https://www.linkedin.com/in/jan-hřídel-42640888/"
+                        href="https://www.linkedin.com/in/hridel/"
                         target="_blank"
                         title="LinkedIn profile"
                     >
