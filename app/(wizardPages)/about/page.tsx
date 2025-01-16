@@ -111,11 +111,11 @@ export default function AboutPage() {
                 <p className="text-center">
                     I don&apos;t like fairy tales, show me your{' '}
                     <Link
-                        href="https://www.linkedin.com/in/jan-hřídel-42640888/"
+                        href="https://www.linkedin.com/in/hridel/"
                         target="_blank"
                         className="underline underline-offset-4 decoration-2 decoration-accent-foreground hover:no-underline"
                     >
-                        LinkedIn profile
+                        LinkedIn
                     </Link>
                     .
                 </p>

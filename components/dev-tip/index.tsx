@@ -18,7 +18,7 @@ const DevTip = (props: DevTipProps): ReactElement => {
             <AlertTitle
                 className="mb-2"
                 dangerouslySetInnerHTML={{
-                    __html: `<span class="text-cyan-600">#${tip.tags.join(', #')}</span> ${tip.title}`,
+                    __html: `<span class="text-[#fcac29]">#${tip.tags.join(', #')}</span> ${tip.title}`,
                 }}
             ></AlertTitle>
             <AlertDescription
